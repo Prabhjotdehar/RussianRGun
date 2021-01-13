@@ -56,7 +56,7 @@ namespace RussianRGun
             LoadGunbtn.Enabled = false;
 
         }
-
+//njmn
         private void SpinRoulltebtn_Click(object sender, EventArgs e)
         {
             Random myfun = new Random();
