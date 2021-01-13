@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Media;
+using System.Media; // for play sounds
 
 
 namespace RussianRGun
@@ -32,39 +32,40 @@ namespace RussianRGun
         SoundPlayer fire = new SoundPlayer(RussianRGun.Properties.Resources.Firep);
 
         string message;
-
+            //arrey
         int[] chamber = { 0, 0, 0, 0, 0, 0, };
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
         }
-
+       // load buuton for load a bullet in the gun 
         private void LoadGunbtn_Click(object sender, EventArgs e)
         {
-            bullet = 1;
-            chance = 2;
+            bullet = 1;  //bullet
+            
+            chance = 2;  //chances
             
             txtBullet.Text = bullet.ToString();
             txtChances.Text = chance.ToString();
-            message = "Bullet is loaded ..Spin Chamber";
+            message = "Bullet is loaded ..Spin Chamber";   // message box show when  bullet is loaded 
             textBox.Text = Convert.ToString(message);
-            load.Play();
+            load.Play();//  load gun sound play 
             ShootAwaybtn.Enabled = false;
             Shootbtn.Enabled = false;
             SpinRoulltebtn.Enabled = true;
             LoadGunbtn.Enabled = false;
 
         }
-//njmn
+         // spin button for place a bullet in random place in a chamber
         private void SpinRoulltebtn_Click(object sender, EventArgs e)
         {
-            Random myfun = new Random();
+            Random myfun = new Random();  // random num fuction
             int random = myfun.Next(1, 7);
             txtBullet.Text = random.ToString();
-            message = "Chamber is run ... Fire ";
+            message = "Chamber is run ... Fire "; // message box show when bullet place ina random place
             textBox.Text = Convert.ToString(message);
-            load.Play();
+            load.Play(); // spinner sound play
             LoadGunbtn.Enabled = true;
             SpinRoulltebtn.Enabled = false;
            
@@ -77,17 +78,17 @@ namespace RussianRGun
             num = random;
 
         }
-
+         // shoot btn for pull the trigger 6 time 
         private void Shootbtn_Click(object sender, EventArgs e)
         {
-            point +=10;
+            point +=10; //add 10 points each win
 
             points += 5;
 
-            fire.Play();
+            fire.Play();// fire  sound play
             num--;
             txtBullet.Text = num.ToString();
-            message = "Fire....Fire ... Fire ";
+            message = "Fire....Fire ... Fire "; //  messagebox show 
             textBox1.Text = point.ToString();
             textBox.Text = Convert.ToString(message);
             textBox3.Text = add.ToString();
@@ -107,7 +108,7 @@ namespace RussianRGun
 
 
         }
-
+           // shootaway btn   2 safe chances  for win the game
         private void ShootAwaybtn_Click(object sender, EventArgs e)
         {
            
@@ -115,8 +116,8 @@ namespace RussianRGun
 
             points += 5;
 
-            load.Play();
-            chance--;
+            load.Play();// sound play
+            chance--;  // chance minus on each click
             num--;
             txtBullet.Text = num.ToString();
             textBox3.Text = add.ToString();
@@ -149,7 +150,7 @@ namespace RussianRGun
         {
 
         }
-
+    // exit buttn for quit the game 
         private void Exitbtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show(" Are you sure to Exit the Game ", "Notice", MessageBoxButtons.YesNo);
